@@ -10,6 +10,10 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bing-b/ai-vibecoding.git"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -17,6 +21,14 @@
       {
         "command": "auratranslate.translate",
         "title": "AuraTranslate: 智能翻译"
+      },
+      {
+        "command": "auratranslate.replace",
+        "title": "AuraTranslate: 替换原文"
+      },
+      {
+        "command": "auratranslate.copy",
+        "title": "AuraTranslate: 复制结果"
       }
     ],
     "viewsContainers": {},
