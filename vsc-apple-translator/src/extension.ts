@@ -26,11 +26,17 @@ export function activate(context: vscode.ExtensionContext) {
           markdown.appendMarkdown(
             `**译文:** <span style="color:#007AFF;font-weight:bold;">${cache.translated}</span>\n\n`,
           );
-          markdown.appendMarkdown(`---  \n`);
+          // Explicitly serialize the range coordinates to avoid reliance on vscode.Range.toJSON()
+          const rangeData = {
+            startLine: cache.range.start.line,
+            startCharacter: cache.range.start.character,
+            endLine: cache.range.end.line,
+            endCharacter: cache.range.end.character,
+          };
 
           // Command links for actions
           const replaceCmd = `command:auratranslate.replace?${encodeURIComponent(
-            JSON.stringify({ value: cache.translated, range: cache.range }),
+            JSON.stringify({ value: cache.translated, range: rangeData }),
           )}`;
           const copyCmd = `command:auratranslate.copy?${encodeURIComponent(
             JSON.stringify({ value: cache.translated }),
@@ -52,15 +58,22 @@ export function activate(context: vscode.ExtensionContext) {
   // Replace Command
   const replaceDisposable = vscode.commands.registerCommand(
     "auratranslate.replace",
-    (args: { value: string; range: any }) => {
+    (args: {
+      value: string;
+      range: {
+        startLine: number;
+        startCharacter: number;
+        endLine: number;
+        endCharacter: number;
+      };
+    }) => {
       const editor = vscode.window.activeTextEditor;
-      if (editor) {
-        // Handle range serialization
+      if (editor && args && args.range) {
         const range = new vscode.Range(
-          args.range[0].line,
-          args.range[0].character,
-          args.range[1].line,
-          args.range[1].character,
+          args.range.startLine,
+          args.range.startCharacter,
+          args.range.endLine,
+          args.range.endCharacter,
         );
         editor.edit((editBuilder) => {
           editBuilder.replace(range, args.value);
