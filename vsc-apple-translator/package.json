@@ -1,0 +1,61 @@
+{
+  "name": "auratranslate",
+  "publisher": "auradesign",
+  "displayName": "AuraTranslate: AI 灵动翻译",
+  "description": "具有极致苹果美学的专业级 AI 灵动翻译工具。",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "auratranslate.translate",
+        "title": "AuraTranslate: 智能翻译"
+      }
+    ],
+    "viewsContainers": {},
+    "views": {},
+    "menus": {
+      "editor/context": [
+        {
+          "command": "auratranslate.translate",
+          "group": "navigation",
+          "title": "AuraTranslate: 智能翻译",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AuraTranslate 设置",
+      "properties": {
+        "auraTranslate.apiKey": {
+          "type": "string",
+          "default": "YOUR_API_KEY_HERE",
+          "description": "SiliconFlow API 密钥 (AuraTranslate)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "axios": "^1.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^4.9.5"
+  }
+}

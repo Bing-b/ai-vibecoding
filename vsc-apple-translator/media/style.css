@@ -1,0 +1,111 @@
+:root {
+  --apple-bg: rgba(255, 255, 255, 0.1);
+  --apple-text: var(--vscode-foreground);
+  --apple-accent: #007aff;
+  --apple-accent-hover: #0063cc;
+  --apple-blur: blur(16px);
+  --apple-radius: 14px;
+  --apple-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  padding: 10px;
+  background: transparent;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  color: var(--apple-text);
+}
+
+.apple-container {
+  background: var(--apple-bg);
+  backdrop-filter: var(--apple-blur);
+  -webkit-backdrop-filter: var(--apple-blur);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--apple-radius);
+  padding: 16px;
+  box-shadow: var(--apple-shadow);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--vscode-descriptionForeground);
+  margin-bottom: 4px;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.text-display {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.text-display.highlight {
+  font-weight: 500;
+  font-family: "SF Mono", "Menlo", monospace;
+  color: var(--apple-accent);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.apple-btn {
+  flex: 1;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.apple-btn:active {
+  transform: scale(0.96);
+}
+
+.apple-btn.primary {
+  background: var(--apple-accent);
+  color: white;
+}
+
+.apple-btn.primary:hover {
+  background: var(--apple-accent-hover);
+}
+
+.apple-btn.secondary {
+  background: rgba(120, 120, 128, 0.16);
+  color: var(--apple-text);
+}
+
+.apple-btn.secondary:hover {
+  background: rgba(120, 120, 128, 0.24);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
