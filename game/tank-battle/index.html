@@ -1,48 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neon Tank Battle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="game-container">
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        
-        <div id="ui-layer">
-            <div id="score-board">
-                <div class="score-item">
-                    <span class="label">SCORE</span>
-                    <span id="score">0</span>
-                </div>
-                <div class="score-item">
-                    <span class="label">LIVES</span>
-                    <span id="lives">3</span>
-                </div>
-            </div>
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
 
-            <div id="start-screen" class="overlay active">
-                <h1>NEON TANK BATTLE</h1>
-                <p>Use W, A, S, D to move. Press SPACE to shoot.</p>
-                <button id="start-btn">START GAME</button>
-            </div>
-
-            <div id="game-over-screen" class="overlay">
-                <h1>MISSION FAILED</h1>
-                <p>Your Base was Destroyed or You Lost All Lives</p>
-                <div class="final-score">SCORE: <span id="final-score">0</span></div>
-                <button id="restart-btn">TRY AGAIN</button>
-            </div>
-            
-            <div id="victory-screen" class="overlay">
-                <h1>MISSION ACCOMPLISHED</h1>
-                <p>Enemy Forces Eliminated</p>
-                <div class="final-score">SCORE: <span id="victory-score">0</span></div>
-                <button id="next-btn">PLAY AGAIN</button>
-            </div>
+      <div id="ui-layer">
+        <div id="score-board">
+          <div class="score-item">
+            <span class="label">SCORE</span>
+            <span id="score">0</span>
+          </div>
+          <div class="score-item">
+            <span class="label">LIVES</span>
+            <span id="lives">3</span>
+          </div>
         </div>
+
+        <div id="start-screen" class="overlay active">
+          <h1>NEON TANK BATTLE</h1>
+          <p>Use W, A, S, D to move. Press SPACE to shoot.</p>
+          <button id="start-btn">START GAME</button>
+        </div>
+
+        <div id="game-over-screen" class="overlay">
+          <h1>MISSION FAILED</h1>
+          <p>Your Base was Destroyed or You Lost All Lives</p>
+          <div class="final-score">SCORE: <span id="final-score">0</span></div>
+          <button id="restart-btn">TRY AGAIN</button>
+        </div>
+
+        <div id="victory-screen" class="overlay">
+          <h1>MISSION ACCOMPLISHED</h1>
+          <p>Enemy Forces Eliminated</p>
+          <div class="final-score">
+            SCORE: <span id="victory-score">0</span>
+          </div>
+          <button id="next-btn">PLAY AGAIN</button>
+        </div>
+      </div>
     </div>
 
     <!-- Scripts -->
@@ -51,5 +56,5 @@
     <script src="js/bullet.js"></script>
     <script src="js/tank.js"></script>
     <script src="js/game.js"></script>
-</body>
+  </body>
 </html>
